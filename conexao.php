@@ -42,7 +42,6 @@ function listarCliente()
 function alterarCliente()
 {
     $banco = abrirBanco();
-    var_dump($banco);
     $sql = "update cliente set nome='{$_POST["nome"]}', sexo='{$_POST["sexo"]}', endereco='{$_POST["endereco"]}', cep='{$_POST["cep"]}', bairro='{$_POST["bairro"]}', cpf='{$_POST["cpf"]}', nascimento='{$_POST["nascimento"]}', data_vencimento='{$_POST["data_vencimento"]}', unidade_consumidora='{$_POST["unidade_consumidora"]}', kwh='{$_POST["kwh"]}', valor_total='{$_POST["valor_total"]}' where id='{$_POST["id"]}'";
     $banco->query($sql);
     $banco->close();

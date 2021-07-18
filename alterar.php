@@ -2,67 +2,73 @@
 include("conexao.php");
 $cliente = selecionarClienteId($_POST["id"]);
 ?>
-<meta charset="UTF-8">
-<form name="dadosCliente" action="conexao.php" method="POST">
-    <table border="1">
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Alterar Dados Clientes</title>
+</head>
+
+<form name="dadosCliente" action="conexao.php" method="post"  style="width: 500px; margin: auto">
+    <table class="table">
         <tbody>
+        <h1 class="text-center">Alterar Cliente</h1>
         <tr>
-            <td>Nome</td>
-            <td><input type="text" name="nome" value='<?= $cliente["nome"] ?>' size="35"/></td>
+            <td><h5>Nome</h5></td>
+            <td><input name="nome"value='<?= $cliente["nome"] ?>' class="form-control input-md" type="text"></td>
         </tr>
         <tr>
-            <td>Sexo</td>
-            <td>
-                <input type="radio" name="sexo"
-                       value="masculino" <?= ($cliente["sexo"] == "masculino") ? "checked" : null ?> /> Masculino
-                <input type="radio" name="sexo"
-                       value="feminino" <?= ($cliente["sexo"] == "feminino") ? "checked" : null ?> /> Feminino
+            <td><h5>Sexo</h5></td>
+            <td><input type="radio" name="sexo" value="m" <?=($cliente["sexo"] == "m") ? "checked":null?> /> Masculino
+                <input type="radio" name="sexo" value="f" <?=($cliente["sexo"] == "f") ? "checked":null?> /> Feminino
             </td>
         </tr>
         <tr>
-            <td>Endereco</td>
-            <td><input type="text" name="endereco" value='<?= $cliente["endereco"] ?>'/></td>
+            <td><h5>Endereço</h5></td>
+            <td><input name="endereco" value='<?= $cliente["endereco"] ?>' class="form-control input-md" type="text"></td>
         </tr>
         <tr>
-            <td>CEP</td>
-            <td><input type="text" name="cep" value='<?= $cliente["cep"] ?>'/></td>
+            <td><h5>CEP</h5></td>
+            <td><input name="cep" value='<?= $cliente["cep"] ?>' class="form-control input-md" type="text"></td>
         </tr>
         <tr>
-            <td>Bairro</td>
-            <td><input type="text" name="bairro" value='<?= $cliente["bairro"] ?>' size="40"/></td>
+            <td><h5>Bairro</h5></td>
+            <td><input name="bairro" value='<?= $cliente["bairro"] ?>' class="form-control input-md" type="text"></td>
         </tr>
         <tr>
-            <td>CPF</td>
-            <td><input type="text" name="cpf" value='<?= $cliente["cpf"] ?>'/></td>
+            <td><h5>CPF</h5></td>
+            <td><input name="cpf" value='<?= $cliente["cpf"] ?>' class="form-control input-md" type="text"></td>
         </tr>
         <tr>
-            <td>Nascimento</td>
-            <td><input type="date" name="nascimento" value='<?= $cliente["nascimento"] ?>'/></td>
+            <td><h5>Data de Nascimento</h5></td>
+            <td><input name="nascimento" value='<?= $cliente["nascimento"] ?>' class="form-control input-md" type="date"></td>
         </tr>
         <tr>
-            <td>Vencimento</td>
-            <td><input type="date" name="data_vencimento" value='<?= $cliente["data_vencimento"] ?>'/></td>
+            <td><h5>Data de Vencimento</h5></td>
+            <td><input name="data_vencimento" value='<?= $cliente["data_vencimento"] ?>' class="form-control input-md" type="date"></td>
         </tr>
         <tr>
-            <td>Unidade Consumidora</td>
-            <td><input type="number" name="unidade_consumidora" value='<?= $cliente["unidade_consumidora"] ?>'/></td>
+            <td><h5>Unidade Consumidora</h5></td>
+            <td><input name="unidade_consumidora" value='<?= $cliente["unidade_consumidora"] ?>' class="form-control input-md" type="number"></td>
         </tr>
         <tr>
-            <td>KWH</td>
-            <td><input type="number" step="0.01" name="kwh" value='<?= $cliente["kwh"] ?>'/></td>
+            <td><h5>Kilowatts Hora</h5></td>
+            <td><input name="kwh" value='<?= $cliente["kwh"] ?>' type="number" class="form-control input-md" step="0.1"></td>
         </tr>
         <tr>
-            <td>Valor Total</td>
-            <td><input type="number" step="0.01" name="valor_total" value='<?= $cliente["valor_total"] ?>'/></td>
+            <td><h5>Valor Total</h5></td>
+            <td><input name="valor_total" value='<?= $cliente["valor_total"] ?>' type="number" class="form-control input-md" step="0.01"></td>
         </tr>
         <tr>
             <td><input type="hidden" name="acao" value="alterar"/></td>
             <td><input type="hidden" name="id" value="<?= $cliente["id"] ?>"/></td>
         </tr>
-        <td><input type="submit" value="Enviar" name="enviar"></td>
+        <td><input type="submit" value="Alterar Cliente" name="enviar" class="btn btn-success"></td>
         </tbody>
     </table>
 </form>
-
-
 
